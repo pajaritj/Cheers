@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
         private ApiInterface apiService;
 
-        BeerResponse.Beer current_beer;
+        Random rand;
+
+        List <BeerResponse.Beer> beers;
+
+        int current_beer=1;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -55,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
             beer_name = (TextView) findViewById(R.id.Beer_Name);
             beer_label = (ImageView) findViewById(R.id.Beer_Label);
             cheers_button= (Button) findViewById(R.id.Cheers_Button);
-            Random rand = new Random();
-            int current_page=1;
-            int glasswareId = rand.nextInt(14) + 1;
+            rand = new Random();
             Map <String,String> query_data =new HashMap<>();
             query_data.put("glasswareId",String.valueOf(5));
             query_data.put("key",API_KEY);
@@ -76,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
                      Log.d("TAG",response.code()+"");
                      String displayResponse = "";
                      BeerResponse resource = response.body();
-                     List <BeerResponse.Beer> beers=resource.data;
-                     current_beer=beers.get(1);
-                     beer_description.setText(current_beer.description);
-                     beer_name.setText(current_beer.nameDisplay);
-                     Picasso.with(MainActivity.this).load(current_beer.labels.large).into(beer_label);
+                     beers=resource.data;
+                     beer_description.setText(beers.get(current_beer).description);
+                     beer_name.setText(beers.get(current_beer).nameDisplay);
+                     Picasso.with(MainActivity.this).load(beers.get(current_beer).labels.large).into(beer_label);
+                     beers.remove(current_beer);
                  }
 
                  @Override
@@ -89,7 +93,15 @@ public class MainActivity extends AppCompatActivity {
                  }
              });
 
-
+            cheers_button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    current_beer= rand.nextInt(beers.size()) + 1;
+                    beer_description.setText(beers.get(current_beer).description);
+                    beer_name.setText(beers.get(current_beer).nameDisplay);
+                    Picasso.with(MainActivity.this).load(beers.get(current_beer).labels.large).into(beer_label);
+                    beers.remove(current_beer);
+                }
+            });
 
         }
 

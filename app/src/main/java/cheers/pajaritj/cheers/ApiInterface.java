@@ -7,10 +7,11 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 
 interface ApiInterface {
-    @GET("/v2/beers")
-    Call<BeerResponse> getBeers(@QueryMap Map<String,String> options);
+    @GET("/v2/beer/random")
+    Call<Beer_Response> getBeers(@Query("hasLabels") String hasLabels, @Query("key") String key);
 }

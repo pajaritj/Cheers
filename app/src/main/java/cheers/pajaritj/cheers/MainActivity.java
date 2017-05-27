@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                             Beer_Response resource=response.body();
                             current_beer = resource.data;
                             mRetainedFragment.setData(current_beer);
-                            beer_description.setText(current_beer.description !=null ? current_beer.description : current_beer.style.description);
+                            beer_description.setText(current_beer.description !=null ? current_beer.description : (current_beer.style.description != null ? current_beer.style.description : "No Description Available"));
                             beer_name.setText(current_beer.name);
                             Picasso.with(MainActivity.this).load(current_beer.labels.large).into(beer_label);
 

@@ -4,5 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="button_font_size">60sp</dimen>
     <dimen name="beer_name_font_size">40sp</dimen>
-    <dimen name="default_elevation">10sp</dimen>
+    <dimen name="default_elevation">5sp</dimen>
+    <dimen name="body_elevation">10sp</dimen>
 </resources>

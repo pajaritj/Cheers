@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,21 +44,31 @@ public class MainActivity extends AppCompatActivity {
 
         private RetainedFragment mRetainedFragment;
 
+        private ScrollView main_body;
+
+        private Toolbar toolbar;
+
+        private TextView toolbar_title;
+
         private Beer current_beer;
 
-        private ScrollView main_body;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Enchanted Land.otf");
+            Typeface button_font = Typeface.createFromAsset(getAssets(),  "fonts/CANDY.TTF");
             beer_description = (TextView) findViewById(R.id.Beer_Description);
             beer_name = (TextView) findViewById(R.id.Beer_Name);
             beer_label = (ImageView) findViewById(R.id.Beer_Label);
             cheers_button= (Button) findViewById(R.id.Cheers_Button);
             main_body = (ScrollView) findViewById(R.id.Main_Body);
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            toolbar_title = (TextView) findViewById(R.id.toolbar_title);
+            toolbar_title.setTypeface(button_font);
             beer_name.setTypeface(custom_font);
-            cheers_button.setTypeface(custom_font);
+            cheers_button.setTypeface(button_font);
             final FragmentManager fm = getFragmentManager();
             mRetainedFragment = (RetainedFragment) fm.findFragmentByTag(TAG_RETAINED_FRAGMENT);
             apiService = ApiClient.getClient().create(ApiInterface.class);

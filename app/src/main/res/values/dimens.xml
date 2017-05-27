@@ -6,4 +6,5 @@
     <dimen name="beer_name_font_size">40sp</dimen>
     <dimen name="default_elevation">5sp</dimen>
     <dimen name="body_elevation">10sp</dimen>
+    <dimen name="image_margin">20dp</dimen>
 </resources>

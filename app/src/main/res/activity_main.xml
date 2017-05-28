@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cheers.pajaritj.cheers.MainActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="70dp"
+        android:layout_width="0dp" />
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/welcome_font_size"
+        android:elevation="@dimen/default_elevation"
+        android:visibility="visible"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/instructions"
+        />
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:text="Click the button below to start."
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp"
+        android:elevation="@dimen/default_elevation"
+        android:visibility="visible"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/windowBackground"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/Footer"
+        android:visibility="invisible"
+        android:id="@+id/Main_Body">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Beer_Name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:gravity="center"
+                android:text="Beer Name"
+                android:textColor="@color/textColorPrimary"
+                android:background="@drawable/round_corners"
+                android:textSize="@dimen/beer_name_font_size"
+                android:elevation="@dimen/default_elevation"
+                android:visibility="visible"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <ImageView
+                android:id="@+id/Beer_Label"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/image_margin"
+                android:layout_marginBottom="@dimen/image_margin"
+                android:layout_gravity="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Beer_Name"
+                app:layout_constraintBottom_toTopOf="@+id/Beer_Description"/>
+
+            <TextView
+                android:id="@+id/Beer_Description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:gravity="fill"
+                android:elevation="@dimen/default_elevation"
+                android:textColor="@color/textColorPrimary"
+                android:background="@drawable/round_corners"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus lectus, egestas nec sapien at, vehicula venenatis magna. Vivamus gravida sapien id convallis dapibus. Ut magna est, lacinia sit amet imperdiet non, semper at massa. Aenean convallis magna in odio tincidunt, eget mollis lorem imperdiet. Morbi sapien orci, tempus in nulla eu, imperdiet rutrum ante. Maecenas sagittis lacus et eros interdum, a porttitor tellus pellentesque. Suspendisse scelerisque est a dui molestie, at pretium justo aliquet. Praesent sollicitudin dui in urna pellentesque, et placerat elit rhoncus. Suspendisse pulvinar quis ante ac elementum. Aliquam pretium sapien facilisis vehicula dapibus. Suspendisse potenti. Fusce non ornare risus. Maecenas turpis turpis, imperdiet nec velit vel, gravida viverra nunc. Mauris vitae orci quis neque aliquam aliquet eget vel tellus. Nunc magna dui, convallis nec iaculis non, pretium a velit.  Cras venenatis dolor ligula, at rhoncus tellus sollicitudin eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent pulvinar purus nulla, non mattis tortor rutrum ac. Praesent faucibus ullamcorper tempor. Maecenas sollicitudin felis a eros congue, ut consectetur purus porta. Integer quis dictum ipsum, non lobortis velit. Fusce lacinia vitae augue ac porta. Vivamus ac ligula nulla. Sed et venenatis dolor. Suspendisse sed mi quis turpis tristique dictum sed id elit. Quisque auctor arcu pulvinar dolor venenatis rhoncus. Sed ex orci, interdum non justo eu, elementum varius dolor. Nam vel vehicula ex, ac scelerisque neque. Pellentesque non erat justo. Quisque velit turpis, commodo at dolor ut, tincidunt semper odio. Sed id accumsan lacus.  Mauris enim lorem, finibus sed lacinia a, consequat ac risus. Maecenas in nisi et ipsum blandit commodo eget non quam. Morbi dictum mi sit amet ex iaculis, in pulvinar augue feugiat. Duis rutrum, dolor vitae fermentum pharetra, urna dui pharetra sem, ut sodales libero neque a erat. Vestibulum pulvinar, ipsum non vulputate feugiat, quam ipsum consectetur dui, sed dignissim risus sapien quis ipsum. Etiam at nisl nec magna mattis placerat. Duis accumsan quam vitae libero consectetur consequat. Aliquam aliquam tortor vitae magna scelerisque malesuada. In scelerisque mi quis neque pulvinar, sit amet dictum sem lacinia. Vivamus accumsan ante sed odio lacinia ultrices. Aliquam venenatis, odio a iaculis mollis, risus velit vestibulum tellus, sit amet ultrices magna odio vel ex. Aenean ut odio tincidunt, ornare dolor blandit, lacinia diam.  Cras tempor viverra libero in sagittis. Donec viverra faucibus tortor. Duis ut auctor eros. Maecenas vitae vulputate nisi. Nulla finibus justo turpis, in blandit dolor facilisis id. Duis quis sapien feugiat, elementum turpis id, maximus tellus. Nullam ullamcorper velit orci, quis luctus turpis euismod semper. Proin ornare neque purus, non suscipit erat ultrices eget. Donec est eros, rutrum vel gravida sit amet, malesuada quis lorem. Maecenas tincidunt arcu congue orci molestie, id lacinia nulla consequat. Aenean accumsan et ex eu pharetra. Etiam non commodo mauris.  Integer condimentum eu nisl vitae porta. Nam purus odio, semper sagittis dolor ut, convallis porta magna. Fusce quam felis, interdum ut luctus a, imperdiet in dui. Integer viverra felis non lorem eleifend, non mattis est venenatis. Duis risus orci, auctor non est laoreet, porta dignissim nulla. Mauris aliquet, leo eget fringilla venenatis, eros nisl dictum lacus, et euismod mauris eros volutpat leo. Sed vel sem et dolor pulvinar pharetra. Vestibulum tempor bibendum lacus, et scelerisque mi rutrum id."
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Beer_Label"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/Footer"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/windowBackground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Main_Body">
+
+        <Button
+            android:id="@+id/Cheers_Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/app_name"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textSize="@dimen/button_font_size"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:elevation="@dimen/body_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

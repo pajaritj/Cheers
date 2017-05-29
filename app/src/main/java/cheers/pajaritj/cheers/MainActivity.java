@@ -127,16 +127,12 @@ public class MainActivity extends AppCompatActivity {
             instructions.setVisibility(View.INVISIBLE);
             main_body.setVisibility(View.VISIBLE);
             if(beer!=null) {
-                if (beer.style.description != null) {
-                    description = beer.style.description;
-                }
                 beer_description.setText(beer.description != null ? beer.description : description);
                 beer_name.setText(beer.name);
                 Picasso.with(MainActivity.this).load(beer.labels.large).into(beer_label);
                 loaded_screen=true;
             }else{
                 Toast.makeText(MainActivity.this, "Ran out of Beers", Toast.LENGTH_LONG).show();
-
             }
         }
         else{

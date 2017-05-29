@@ -1,6 +1,5 @@
 package cheers.pajaritj.cheers;
 
-
 import android.app.FragmentManager;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -86,30 +85,30 @@ public class MainActivity extends AppCompatActivity {
             mRetainedFragment.setLoaded(false);
         }
 
-                cheers_button.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        apiService.getBeers(HAS_LABELS, API_KEY).enqueue(new Callback<Beer_Response>() {
-                            @Override
-                            public void onResponse(Call<Beer_Response> call, Response<Beer_Response> response) {
-                                Log.d("TAG", response.code() + "");
-                                Beer_Response resource = response.body();
-                                Beer beer =resource.data;
-                                mRetainedFragment.setLoaded(true);
-                                loaded_screen=true;
-                                setTexts(beer);
-                                mRetainedFragment.setData(resource.data);
-                            }
-
-                            @Override
-                            public void onFailure(Call<Beer_Response> call, Throwable t) {
-                                Log.e(TAG, t.toString());
-                            }
-                        });
-
-                        main_body.scrollTo(0, 0);
+        cheers_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                apiService.getBeers(HAS_LABELS, API_KEY).enqueue(new Callback<Beer_Response>() {
+                    @Override
+                    public void onResponse(Call<Beer_Response> call, Response<Beer_Response> response) {
+                        Log.d("TAG", response.code() + "");
+                        Beer_Response resource = response.body();
+                        Beer beer =resource.data;
+                        mRetainedFragment.setLoaded(true);
+                        loaded_screen=true;
+                        setTexts(beer);
+                        mRetainedFragment.setData(resource.data);
                     }
 
+                    @Override
+                    public void onFailure(Call<Beer_Response> call, Throwable t) {
+                        Log.e(TAG, t.toString());
+                    }
                 });
+
+                main_body.scrollTo(0, 0);
+            }
+
+        });
 
     }
 
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             fm.beginTransaction().remove(mRetainedFragment).commit();
         }
     }
-     // Change texts and handle visibility for textviews
+    // Change texts and handle visibility for textviews
     public void setTexts(Beer beer){
         if(loaded_screen==true) {
             welcome.setVisibility(View.INVISIBLE);
@@ -148,5 +147,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
-
